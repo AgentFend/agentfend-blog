@@ -1,130 +1,95 @@
-# Modern Blog Template
+# AgentFend - Changelog
 
-A modern, fully-featured blog template built with the latest web technologies. Includes user authentication, comments, newsletter signup, and more.
+Security research, threat intelligence, and AI skill auditing — by the AgentFend team.
 
-## Features
+This is the official blog and changelog for AgentFend, a platform dedicated to auditing AI agents and identifying security risks in automated workflows.
 
-- **Modern Stack**: Next.js 16, React 19, TypeScript 5.9
-- **Content Management**: MDX-powered blog posts with Fumadocs
-- **User Features**: Authentication with Better Auth, commenting system
-- **Developer Experience**: Biome for linting/formatting, TypeScript, Tailwind CSS
-- **SEO Optimized**: Sitemap, RSS feed, OpenGraph images
-- **Database**: Drizzle ORM with Neon PostgreSQL
-- **Email**: Newsletter integration with Resend
-- **Styling**: Tailwind CSS with shadcn/ui components
+## 🚀 Features
 
-## Getting Started
+- **🛡️ Security Focused**: Deep dives into threat intelligence and AI skill auditing.
+- **⚡ Modern Stack**: Built with [Next.js 16](https://nextjs.org/), [React 19](https://react.dev/), and [Tailwind CSS 4](https://tailwindcss.com/).
+- **📝 Content Engine**: Powerful MDX-driven posts powered by [Fumadocs](https://fumadocs.vercel.app/).
+- **🔐 Secure Auth**: Robust authentication system using [Better Auth](https://www.better-auth.com/).
+- **💾 Data Layer**: [Drizzle ORM](https://orm.drizzle.team/) with [Neon PostgreSQL](https://neon.tech/) for high-performance data management.
+- **🔔 Integration**: Discord Webhook notifications and [Resend](https://resend.com/) newsletter support.
+- **📱 Responsive Design**: Premium, dark-themed UI with smooth animations and shadcn/ui components.
+
+## 🛠️ Getting Started
 
 ### Prerequisites
 
-- Node.js 20+ (see `.nvmrc`)
-- pnpm 10.7.0
+- [Bun](https://bun.sh/) (Recommended) or Node.js 20+
+- A Neon PostgreSQL database
+- Resend API key for emails
 
 ### Installation
 
 ```bash
-pnpm install
+bun install
 ```
 
 ### Environment Setup
 
-Copy `.env.example` to `.env` and fill in your environment variables:
+Copy `.env.example` to `.env` and fill in the required credentials:
 
 ```bash
 cp .env.example .env
 ```
 
-Required variables:
-- `DATABASE_URL`: Neon PostgreSQL connection string
-- `BETTER_AUTH_SECRET`: Auth secret key
-- `BETTER_AUTH_URL`: Your app URL
-- `RESEND_API_KEY`: For newsletter emails
+Key variables to configure:
+- `DATABASE_URL`: Your Neon PostgreSQL connection string.
+- `BETTER_AUTH_SECRET`: Generate using `openssl rand -base64 32`.
+- `NEXT_PUBLIC_BASE_URL`: Your deployment URL (defaults to `http://localhost:3000`).
+- `DISCORD_WEBHOOK_URL`: For build and post notifications.
 
 ### Development
 
 ```bash
-pnpm dev
+bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) to see your blog.
+Open [http://localhost:3000](http://localhost:3000) to view the development site.
 
-## Available Commands
-
-- `pnpm dev`: Start development server
-- `pnpm build`: Build for production
-- `pnpm start`: Start production server
-- `pnpm check`: Run Biome linter
-- `pnpm check:write`: Auto-fix linting issues
-- `pnpm typecheck`: Run TypeScript type checking
-- `pnpm db:push`: Push database schema changes
-- `pnpm db:studio`: Open Drizzle Studio
-
-## Project Structure
+## 📁 Project Structure
 
 ```
-├── content/
-│   └── blog/           # Blog posts (MDX)
-├── emails/             # Email templates
-├── public/             # Static assets
-├── scripts/            # Build scripts
+├── content/             # Blog posts in MDX
 ├── src/
-│   ├── app/            # Next.js app directory
-│   │   ├── (home)/     # Main site routes
-│   │   │   └── (blog)/ # Blog routes
-│   │   ├── (auth)/     # Authentication pages
-│   │   ├── (llms)/     # LLM-readable content
-│   │   └── api/        # API routes
-│   ├── components/     # React components
-│   │   ├── ui/         # shadcn/ui components
-│   │   ├── sections/   # Layout sections
-│   │   └── blog/       # Blog-specific components
-│   ├── constants/      # App constants
-│   ├── lib/            # Utilities and helpers
-│   ├── server/         # Server-side code
-│   │   ├── auth/       # Authentication
-│   │   ├── comments/   # Comment system
-│   │   └── db/         # Database
-│   └── styles/         # Global styles
-└── source.config.ts    # Fumadocs configuration
+│   ├── app/            # Next.js App Router
+│   ├── components/     # UI components & Design System
+│   ├── constants/      # Site configuration & Navigation
+│   ├── lib/            # Shared utilities & Metadata logic
+│   ├── server/         # Auth, DB, and Server Actions
+│   └── styles/         # Global CSS & Tailwind config
+├── drizzle.config.ts    # Database schema configuration
+└── source.config.ts     # Fumadocs content configuration
 ```
 
-## Writing Blog Posts
+## 📖 Writing Content
 
-Create a new MDX file in `content/blog/`:
+New posts should be added to `content/blog/`. Each post requires valid frontmatter:
 
 ```mdx
 ---
-title: Your Post Title
-description: A brief description
-date: 2026-01-24
-author: Your Name
-tags: [nextjs, react, typescript]
-image: /images/blog/cover.jpg
+title: "Analyzing Prompt Injection in AI Agents"
+description: "A summary of recent vulnerabilities found in autonomous agents."
+date: 2026-03-24
+author: "AgentFend Team"
+tags: [security, ai, auditing]
 ---
-
-Your content here...
 ```
 
-## Customization
+## 📜 Commands
 
-1. **Site Configuration**: Update `src/constants/site.ts`
-2. **Navigation**: Edit `src/constants/navigation/links.tsx`
-3. **Social Links**: Update `src/constants/navigation/social.tsx`
-4. **Styling**: Modify `src/styles/globals.css` and Tailwind config
+| Command | Action |
+|---------|--------|
+| `bun dev` | Starts the development server |
+| `bun build` | Builds the project for production |
+| `bun start` | Runs the production build |
+| `bun db:push` | Pushes schema changes to Neon |
+| `bun db:studio` | Opens the Drizzle Studio database viewer |
+| `bun check` | Lints and formats the codebase with Biome |
 
-## Technologies
+## ⚖️ License
 
-- **Framework**: [Next.js 16](https://nextjs.org/)
-- **React**: [React 19](https://react.dev/)
-- **TypeScript**: [TypeScript 5.9](https://www.typescriptlang.org/)
-- **Styling**: [Tailwind CSS 4](https://tailwindcss.com/)
-- **UI Components**: [shadcn/ui](https://ui.shadcn.com/)
-- **Content**: [Fumadocs](https://fumadocs.vercel.app/)
-- **Database**: [Drizzle ORM](https://orm.drizzle.team/) + [Neon](https://neon.tech/)
-- **Authentication**: [Better Auth](https://www.better-auth.com/)
-- **Email**: [Resend](https://resend.com/)
-- **Linting**: [Biome](https://biomejs.dev/)
-
-## License
-
-MIT
+Built with ❤️ by the AgentFend Team. Licensed under the [MIT License](LICENSE).
