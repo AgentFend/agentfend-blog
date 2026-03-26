@@ -9,11 +9,6 @@ const content = `# ${title}
 
 **Note:** For a comprehensive single-file version with all content, see [llms-full.txt](${url('/llms-full.txt')})
 
-const content = `# ${title}
-> ${description}
-
-**Note:** For a comprehensive single-file version with all content, see [llms-full.txt](${url('/llms-full.txt')})
-
 ## Blog
 
 ${allPosts.map((item) => `- [${item.data.title}](${url(['blog.mdx', ...item.slugs])}): ${item.data.description ?? ''}`).join('\n')}
