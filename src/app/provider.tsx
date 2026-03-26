@@ -7,7 +7,6 @@ import Link from 'next/link'
 import { useRouter } from 'next/navigation'
 import { NuqsAdapter } from 'nuqs/adapters/next/app'
 import type { ReactNode } from 'react'
-import Analytics from '@/components/analytics'
 import { TailwindIndicator } from '@/components/tailwind-indicator'
 import { ThemeProvider } from '@/components/theme-provider'
 import { Toaster } from '@/components/ui/sonner'
@@ -43,7 +42,7 @@ export function Provider({
           }}
           replace={router.replace}
           social={{
-            providers: ['github', 'google'],
+            providers: ['github'],
           }}
           viewPaths={{
             SIGN_IN: 'login',
@@ -68,7 +67,6 @@ export function Provider({
             <TooltipProvider>{children}</TooltipProvider>
           </ProgressProvider>
         </AuthUIProvider>
-        <Analytics />
         <Toaster />
         <TailwindIndicator />
       </NuqsAdapter>
