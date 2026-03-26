@@ -9,9 +9,10 @@ const content = `# ${title}
 
 **Note:** For a comprehensive single-file version with all content, see [llms-full.txt](${url('/llms-full.txt')})
 
-## About
+const content = `# ${title}
+> ${description}
 
-- [About](${url('/about.md')}): Information about this blog
+**Note:** For a comprehensive single-file version with all content, see [llms-full.txt](${url('/llms-full.txt')})
 
 ## Blog
 
