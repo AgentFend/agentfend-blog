@@ -7,6 +7,7 @@ import { db } from '@/server/db'
 
 export const auth = betterAuth({
   baseURL: env.NEXT_PUBLIC_BASE_URL,
+  trustedOrigins: ['https://blog.agentfend.com'],
   database: drizzleAdapter(db, {
     provider: 'pg',
     usePlural: true,
